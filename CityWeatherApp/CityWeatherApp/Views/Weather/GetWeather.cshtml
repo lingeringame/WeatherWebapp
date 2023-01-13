@@ -1,0 +1,32 @@
+﻿@using CityWeatherApp.Models;
+@model CurrentWeather;
+
+@if (Model == null)
+{
+    <span>No weather data found</span>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Temperature</th>
+                <th>Icon</th>
+                <th>Weather</th>
+                <th>Weather Description</th>
+                <th>Wind speed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.name</td>
+                <td>@Model.main.temp °F</td>
+                <td><img src="@Model.weather[0].iconUrl"></td>
+                <td>@Model.weather[0].main</td>
+                <td>@Model.weather[0].description</td>
+                <td>@Model.wind.speed</td>
+            </tr>
+        </tbody>
+    </table>
+}
